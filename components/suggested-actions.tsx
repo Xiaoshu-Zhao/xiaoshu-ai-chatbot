@@ -16,25 +16,25 @@ interface SuggestedActionsProps {
 function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the advantages',
-      label: 'of using Next.js?',
-      action: 'What are the advantages of using Next.js?',
+      title: '今天杭州的天气怎么样',
+      label: '询问天气',
+      action: '今天杭州的天气怎么样',
     },
     {
-      title: 'Write code to',
-      label: `demonstrate djikstra's algorithm`,
-      action: `Write code to demonstrate djikstra's algorithm`,
+      title: '用python的streamlit库写一个简单的网页',
+      label: '编程',
+      action: '用python的streamlit库写一个简单的网页',
     },
     {
-      title: 'Help me write an essay',
-      label: `about silicon valley`,
-      action: `Help me write an essay about silicon valley`,
+      title: '帮我写一篇关于硅谷的文章',
+      label: '写作',
+      action: '帮我写一篇关于硅谷的短文，不超过 50 字',
     },
     {
-      title: 'What is the weather',
-      label: 'in San Francisco?',
-      action: 'What is the weather in San Francisco?',
-    },
+      title: '帮我用数据分析工具分析数据',
+      label: '数据分析',
+      action: '随机创建一个表格，并且分析表格的数据',
+    }
   ];
 
   return (
