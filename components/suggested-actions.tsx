@@ -17,7 +17,7 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
       title: '今天杭州的天气怎么样',
-      label: '询问天气',
+      label: '实时天气查询',
       action: '今天杭州的天气怎么样',
     },
     {
