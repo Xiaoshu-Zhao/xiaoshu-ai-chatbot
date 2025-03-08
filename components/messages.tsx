@@ -1,4 +1,5 @@
-import { ChatRequestOptions, Message } from 'ai';
+import { ChatRequestOptions } from 'ai';
+import type { Message } from '@/lib/types';
 import { PreviewMessage, ThinkingMessage } from './message';
 import { useScrollToBottom } from './use-scroll-to-bottom';
 import { Overview } from './overview';

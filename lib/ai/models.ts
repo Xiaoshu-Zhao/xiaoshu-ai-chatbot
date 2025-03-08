@@ -1,5 +1,6 @@
 import { openai } from '@ai-sdk/openai';
 import { fireworks } from '@ai-sdk/fireworks';
+import { perplexity } from '@ai-sdk/perplexity';
 import {
   customProvider,
   extractReasoningMiddleware,
@@ -16,6 +17,7 @@ export const myProvider = customProvider({
       model: fireworks('accounts/fireworks/models/deepseek-r1'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
+    'chat-model-online': perplexity('pplx-70b-online'),
     'title-model': openai('gpt-4-turbo'),
     'block-model': openai('gpt-4o-mini'),
   },
@@ -46,5 +48,10 @@ export const chatModels: Array<ChatModel> = [
     id: 'chat-model-reasoning',
     name: 'deepseek-r1',
     description: '强大的推理模型，用于解决复杂的，多步骤的逻辑推理问题',
+  },
+  {
+    id: 'chat-model-online',
+    name: 'pplx-70b-online',
+    description: '联网搜索模型，可以获取最新的在线信息',
   },
 ];

@@ -1,6 +1,7 @@
 'use client';
 
-import type { ChatRequestOptions, Message } from 'ai';
+import type { ChatRequestOptions } from 'ai';
+import type { Message } from '@/lib/types';
 import cx from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useMemo, useState } from 'react';
@@ -13,6 +14,7 @@ import {
   LoaderIcon,
   PencilEditIcon,
   SparklesIcon,
+  LinkIcon,
 } from './icons';
 import { Markdown } from './markdown';
 import { MessageActions } from './message-actions';
@@ -93,7 +95,7 @@ const PurePreviewMessage = ({
               />
             )}
 
-            {(message.content || message.reasoning) && mode === 'view' && (
+            {message.content && mode === 'view' && (
               <div className="flex flex-row gap-2 items-start">
                 {message.role === 'user' && !isReadonly && (
                   <Tooltip>
@@ -119,6 +121,26 @@ const PurePreviewMessage = ({
                   })}
                 >
                   <Markdown>{message.content as string}</Markdown>
+                  
+                  {message.citations && message.citations.length > 0 && (
+                    <div className="flex flex-col gap-2 mt-2">
+                      <div className="text-sm font-medium text-muted-foreground">Sources:</div>
+                      <div className="flex flex-col gap-1">
+                        {message.citations.map((citation, index) => (
+                          <a
+                            key={index}
+                            href={citation.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 text-sm text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+                          >
+                            <LinkIcon size={12} />
+                            {citation.title || citation.url}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
